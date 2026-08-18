@@ -1,7 +1,7 @@
 # EXPERIMENT-06-INTERRUPT-GENERATION-USING-PUSHBUTTON-AND-SIMULATING-THE-OUTPUT
-## Name :
-## Roll no :
-## Date of Experiment :
+## Name : Yash Chhajer V
+## Roll no : 2122225040498
+## Date of Experiment : 18-08-2026
 ### Aim:
 To Interface a push button and generate an interrupt , simulate it using an led and simuate it on  proteus 
 
@@ -57,7 +57,7 @@ Now each of these lines EXTI0-EXTI15 can be used to trigger an interrupt on diff
 ![image](https://user-images.githubusercontent.com/36288975/226189425-2b2414ce-49b3-4b61-a260-c658cb2e4152.png)
 
 
-7.click on cntrl+S , automaticall C program will be generated 
+7.click on ctrl+S , automaticall C program will be generated 
 ![image](https://user-images.githubusercontent.com/36288975/226189443-8b43451d-0b14-47e4-a20b-cc09c6ad8458.png)
 ![image](https://user-images.githubusercontent.com/36288975/226189450-85ffa969-2ffb-4788-81e5-72d60fdda0f1.png)
 8. edit the program and as per required 
@@ -88,18 +88,43 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 ![image](https://user-images.githubusercontent.com/36288975/233856904-99eb708a-c907-4595-9025-c9dbd89b8879.png)
 
 
-  
-
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
 
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
 
+int main(void)
+{
+  HAL_Init();
+
+  SystemClock_Config();
+
+  MX_GPIO_Init();
+
+  while (1)
+  {
+  }
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  if (GPIO_Pin == GPIO_PIN_9) {
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_11);
+  }
+}
+```
 
 ## Output screen shots of proteus  :
- 
+<img width="1192" height="831" alt="IntToggleOff" src="https://github.com/user-attachments/assets/9b22310b-a25c-4885-8992-f6a243add57c" />
+<img width="1188" height="839" alt="IntToggleOn" src="https://github.com/user-attachments/assets/ffd610ae-d75d-4246-b4a7-41ad1643ffba" />
+
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- 
+<img width="1108" height="794" alt="Exp6" src="https://github.com/user-attachments/assets/625635d8-6d03-49b8-bfb8-1756401b88c0" />
+
  
 ## Result :
-Interfacing a push button and interrupt genrateion is simulated using proteus 
+Interfacing a push button and interrupt generation is simulated using proteus 
 
